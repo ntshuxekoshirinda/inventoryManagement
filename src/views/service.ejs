@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* The Flexbox grid for cards */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* The Individual Card */
+.service-card {
+  background: #d6d1e9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  width: calc(33.333% - 20px); /* 3 cards per row */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border-color: #3498db;
+}
+
+.service-card h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  font-size: 1.25rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1; /* Pushes content to fill the card */
+}
+
+/* Responsive adjustment for tablets/phones */
+@media (max-width: 900px) {
+  .service-card { width: calc(50% - 20px); }
+}
+
+@media (max-width: 600px) {
+  .service-card { width: 100%; }
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>IT Service Catalog</h1>
+    
+    <div class="services-grid">
+      <% services.forEach(service => { %>
+        <div class="service-card">
+          <h2><%= service.name %></h2>
+          <p><%= service.description %></p>
+          </div>
+      <% }) %>
+    </div><a href="/service" class="btn btn-primary"> ADD SERVICE</a>
+  </div>
+  
+  
+</body>
+</html>
